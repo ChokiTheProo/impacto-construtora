@@ -1,0 +1,6 @@
+﻿# Vídeo é grande demais pro Git — coloque localmente em assets/video/hero.mp4
+assets/video/hero.mp4
+assets/video/*.mp4
+assets/video/*.mov
+.DS_Store
+Thumbs.db

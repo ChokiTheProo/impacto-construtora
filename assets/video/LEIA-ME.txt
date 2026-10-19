@@ -1,0 +1,24 @@
+﻿VÍDEO PRINCIPAL DO SITE
+=======================
+
+Coloque aqui o seu vídeo com o nome exato:  hero.mp4
+
+CAMINHO COMPLETO:
+  assets/video/hero.mp4
+  (a partir da raiz do projeto: C:\Users\roger\Desktop\Projetos\Construtora\assets\video\hero.mp4)
+
+Recomendações:
+- Formato MP4 (H.264)
+- Tamanho 1920 x 1080 (horizontal)
+- Duração de 10 a 20 segundos (ele roda em repetição)
+- Sem som (o navegador só toca vídeo automático se estiver mudo)
+- De preferência com menos de 10 MB, para o site abrir rápido no celular
+
+Enquanto o arquivo hero.mp4 não existir, o site mostra a foto de alto padrão no lugar.
+O texto aparece por cima do vídeo com uma camada escura, então prefira
+imagens sem letreiros ou textos gravados no meio do vídeo.
+
+ONDE BAIXAR VÍDEOS GRÁTIS (alto padrão):
+- https://www.pexels.com/pt-br/videos/  -> busque: luxury house, modern villa aerial
+- https://pixabay.com/videos/search/luxury%20house/
+- https://coverr.co/  -> Real Estate / Architecture
