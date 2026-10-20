@@ -6,8 +6,8 @@
 const CONFIG = {
   whatsapp: '5514998580746',          // DDI 55 + DDD + número, só números
   telefone: '(14) 99858-0746',        // como o número aparece escrito no site
-  instagram: 'https://instagram.com/',
-  facebook: 'https://facebook.com/',
+  instagram: 'https://www.instagram.com/grupoimpact0/',
+  facebook: 'https://www.facebook.com/share/1F5WLjmFJS/?mibextid=wwXIfr',
   mensagemPadrao: 'Olá! Vim pelo site da Impacto Construtora.',
 };
 
