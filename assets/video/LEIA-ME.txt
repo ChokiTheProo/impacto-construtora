@@ -2,8 +2,8 @@
 =======================
 
 O que está aqui hoje:
-- hero.mp4 ............ vídeo da capa para computador (1920x1080, ~19 s, sem som)
-- hero-mobile.mp4 ..... o mesmo vídeo em 1280x720, mais leve, para celular
+- hero.mp4 ............ vídeo da capa para computador e tablet (1600x900, ~19 s, sem som, ~5 MB)
+- hero-mobile.mp4 ..... o mesmo vídeo em formato vertical 600x800 para celular em pé (~1,5 MB)
 - hero-poster-*.webp .. foto da capa (primeiro quadro do vídeo), em 3 tamanhos
 - hero-og.jpg ......... imagem que aparece quando o link é compartilhado no WhatsApp/Facebook
 
@@ -17,7 +17,7 @@ Substitua hero.mp4 e hero-mobile.mp4 mantendo os nomes. Recomendações:
 - Formato MP4 (H.264), 1920 x 1080 (horizontal)
 - Duração de 10 a 20 segundos (ele roda em repetição)
 - Sem som (o navegador só toca vídeo automático se estiver mudo)
-- Menos de 10 MB (o de celular, menos de 4 MB)
+- Menos de 6 MB (o de celular, vertical, menos de 2 MB)
 - Troque também as fotos hero-poster-*.webp pelo primeiro quadro do vídeo novo
 
 O texto aparece por cima do vídeo com uma camada escura, então prefira

@@ -19,16 +19,15 @@
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="360x360">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <!-- Foto do topo: a mesma cena que abre o vídeo (a troca foto → vídeo fica imperceptível) -->
   <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-810.webp" media="(max-aspect-ratio: 3/4)">
   <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-1440.webp" media="(min-aspect-ratio: 3001/4000) and (max-aspect-ratio: 4/3)">
   <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-1920.webp" media="(min-aspect-ratio: 4001/3000)">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- Dados da empresa para o Google -->
@@ -64,8 +63,6 @@
       <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
       <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
-      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9z"/></symbol>
       <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></symbol>
       <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 8 7"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></symbol>
       <symbol id="i-area" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
@@ -126,11 +123,11 @@
       <!--
         VÍDEO PRINCIPAL: montagem de vídeos gratuitos do Pexels (fachada, vista aérea,
         obra, interior e casa pronta). Começa e termina na fachada para repetir sem corte.
-        Computador: assets/video/hero.mp4 (1920x1080) · Celular: assets/video/hero-mobile.mp4 (1280x720).
+        Computador: assets/video/hero.mp4 (1600x900) · Celular em pé: assets/video/hero-mobile.mp4 (600x800, vertical).
         Ele só começa a baixar depois que o resto da página carregou,
         e não é baixado em conexões lentas ou com economia de dados.
       -->
-      <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true"
+      <video class="hero__video" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true" tabindex="-1"
              data-hero-video data-src="assets/video/hero.mp4" data-src-mobile="assets/video/hero-mobile.mp4"></video>
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -146,10 +143,6 @@
           </a>
         </div>
       </div>
-
-      <button class="hero__toggle" type="button" aria-label="Pausar vídeo" data-video-toggle hidden>
-        <svg class="icon icon--fill" aria-hidden="true"><use href="#i-pause"/></svg>
-      </button>
     </section>
 
     <!-- ===================== NÚMEROS ===================== -->
@@ -750,6 +743,6 @@
     <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <script src="js/main.js?v=6" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </body>
 </html>

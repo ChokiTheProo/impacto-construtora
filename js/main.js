@@ -56,55 +56,49 @@ document.addEventListener('keydown', (e) => {
 });
 window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
-/* ---------- Vídeo do topo ---------- */
+/* ---------- Vídeo do topo (roda sozinho, sem botão) ---------- */
 const video = document.querySelector('[data-hero-video]');
-const videoToggle = document.querySelector('[data-video-toggle]');
 
-if (video && videoToggle) {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (video) {
   const connection = navigator.connection || {};
   const slowConnection = connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '');
-  let pausedByUser = reduceMotion;
   let inView = true;
 
-  const syncButton = () => {
-    const paused = video.paused;
-    videoToggle.setAttribute('aria-label', paused ? 'Reproduzir vídeo' : 'Pausar vídeo');
-    videoToggle.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
-  };
-
   const tryPlay = () => {
-    if (!pausedByUser && inView) video.play().catch(() => {});
+    if (inView && !document.hidden && video.src) video.play().catch(() => {});
   };
 
   // O vídeo só é baixado depois que a página terminou de carregar,
   // para não atrasar a foto do topo e os textos.
   const loadVideo = () => {
     video.muted = true;
-    video.preload = reduceMotion ? 'metadata' : 'auto';
-    // Celular recebe a versão 720p (bem mais leve); computador recebe a Full HD
-    const isSmall = window.matchMedia('(max-width: 768px)').matches;
-    video.src = (isSmall && video.dataset.srcMobile) || video.dataset.src;
+    video.autoplay = true;
+    video.preload = 'auto';
+    // Celular em pé recebe a versão vertical (bem mais leve); o resto recebe a Full HD
+    const isPortrait = window.matchMedia('(max-aspect-ratio: 3/4)').matches;
+    video.src = (isPortrait && video.dataset.srcMobile) || video.dataset.src;
     tryPlay();
   };
 
-  // O botão e o vídeo só aparecem quando existe um arquivo de verdade em assets/video/hero.mp4
-  video.addEventListener('loadeddata', () => { videoToggle.hidden = false; syncButton(); });
   video.addEventListener('playing', () => video.classList.add('is-playing'));
-  video.addEventListener('play', syncButton);
-  video.addEventListener('pause', syncButton);
+  video.addEventListener('canplay', tryPlay);
 
-  videoToggle.addEventListener('click', () => {
-    pausedByUser = !video.paused;
-    if (pausedByUser) video.pause();
-    else tryPlay();
-  });
+  // Volta a tocar quando a pessoa retorna à aba ou ao app
+  document.addEventListener('visibilitychange', tryPlay);
+
+  // iPhone em modo economia de bateria bloqueia o play automático:
+  // o vídeo começa no primeiro toque na tela
+  const unlock = () => {
+    tryPlay();
+    if (!video.paused) ['touchend', 'click'].forEach((t) => document.removeEventListener(t, unlock));
+  };
+  ['touchend', 'click'].forEach((t) => document.addEventListener(t, unlock, { passive: true }));
 
   // Pausa o vídeo quando ele sai da tela (economiza bateria e dados)
   new IntersectionObserver(([entry]) => {
     inView = entry.isIntersecting;
     if (!inView) video.pause();
-    else if (video.src) tryPlay();
+    else tryPlay();
   }).observe(video);
 
   if (!slowConnection && video.dataset.src) {

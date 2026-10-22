@@ -3,6 +3,18 @@
    Paleta preto e branco. Para mudar cores, edite :root.
    ========================================================= */
 
+/* Fontes hospedadas no próprio site (sem esperar o Google Fonts) */
+@font-face {
+  font-family: "Archivo"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("../assets/fonts/archivo-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Space Grotesk"; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("../assets/fonts/space-grotesk-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --black: #0b0b0b;
   --ink: #161616;
@@ -170,7 +182,10 @@ figure, blockquote { margin: 0; }
   overflow: hidden;
 }
 .hero__poster, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-.hero__video { opacity: 0; transition: opacity .8s var(--ease); }
+.hero__video { opacity: 0; transition: opacity .8s var(--ease); pointer-events: none; }
+/* Nunca mostra o botão de play do próprio celular (iPhone em modo economia de bateria) */
+.hero__video::-webkit-media-controls,
+.hero__video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 .hero__video.is-playing { opacity: 1; }
 .hero__overlay {
   position: absolute; inset: 0; z-index: -1;
@@ -182,20 +197,9 @@ figure, blockquote { margin: 0; }
 .hero__title { font-size: clamp(2.6rem, 7vw, 5.6rem); max-width: 14ch; margin-bottom: 22px; }
 .hero__text { font-size: clamp(1.02rem, 1.4vw, 1.18rem); max-width: 52ch; color: rgba(255,255,255,.88); margin-bottom: 32px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero__toggle {
-  position: absolute; right: var(--gutter); bottom: clamp(56px, 10vh, 112px);
-  width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center;
-  border: 1px solid rgba(255,255,255,.6); background: rgba(0,0,0,.25); color: var(--white);
-  cursor: pointer; transition: background-color .25s var(--ease);
-}
-.hero__toggle:hover { background: rgba(0,0,0,.5); }
-.hero__toggle .icon { width: 16px; height: 16px; }
-.hero__toggle[hidden] { display: none; }
 
 @media (max-width: 600px) {
   .hero__actions .btn { flex: 1 1 100%; }
-  .hero__toggle { bottom: auto; top: calc(var(--header-h) + 16px); }
 }
 
 /* ---------- Textos de seção ---------- */
