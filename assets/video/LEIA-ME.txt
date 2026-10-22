@@ -1,20 +1,25 @@
 ﻿VÍDEO PRINCIPAL DO SITE
 =======================
 
-Coloque aqui o seu vídeo com o nome exato:  hero.mp4
+O que está aqui hoje:
+- hero.mp4 ............ vídeo da capa para computador (1920x1080, ~19 s, sem som)
+- hero-mobile.mp4 ..... o mesmo vídeo em 1280x720, mais leve, para celular
+- hero-poster-*.webp .. foto da capa (primeiro quadro do vídeo), em 3 tamanhos
+- hero-og.jpg ......... imagem que aparece quando o link é compartilhado no WhatsApp/Facebook
 
-CAMINHO COMPLETO:
-  assets/video/hero.mp4
-  (a partir da raiz do projeto: C:\Users\roger\Desktop\Projetos\Construtora\assets\video\hero.mp4)
+O vídeo é uma montagem de vídeos gratuitos do Pexels (licença livre, uso comercial
+permitido, sem obrigação de dar crédito): fachada alto padrão, vista aérea de bairro,
+obra em andamento, interior e casa pronta. Ele começa e termina na mesma cena da
+fachada, por isso repete sem corte, e a foto da capa é esse mesmo quadro.
 
-Recomendações:
-- Formato MP4 (H.264)
-- Tamanho 1920 x 1080 (horizontal)
+PARA TROCAR PELO SEU PRÓPRIO VÍDEO
+Substitua hero.mp4 e hero-mobile.mp4 mantendo os nomes. Recomendações:
+- Formato MP4 (H.264), 1920 x 1080 (horizontal)
 - Duração de 10 a 20 segundos (ele roda em repetição)
 - Sem som (o navegador só toca vídeo automático se estiver mudo)
-- De preferência com menos de 10 MB, para o site abrir rápido no celular
+- Menos de 10 MB (o de celular, menos de 4 MB)
+- Troque também as fotos hero-poster-*.webp pelo primeiro quadro do vídeo novo
 
-Enquanto o arquivo hero.mp4 não existir, o site mostra a foto de alto padrão no lugar.
 O texto aparece por cima do vídeo com uma camada escura, então prefira
 imagens sem letreiros ou textos gravados no meio do vídeo.
 

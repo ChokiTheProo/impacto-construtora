@@ -10,7 +10,9 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Impacto Construtora | Casas Minha Casa Minha Vida em Pirajuí/SP">
   <meta property="og:description" content="Sua casa própria começa aqui. Casas no padrão Minha Casa Minha Vida, do projeto à entrega das chaves.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=75">
+  <meta property="og:image" content="https://chokitheproo.github.io/impacto-construtora/assets/video/hero-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="pt_BR">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -20,16 +22,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <!-- Foto do topo ALTO PADRÃO: casa de luxo moderna -->
-  <link rel="preload" as="image" fetchpriority="high"
-        imagesrcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=640&h=1100&q=70 640w,
-                     https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=828&h=1400&q=65 828w,
-                     https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1080&h=1200&q=70 1080w,
-                     https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&h=1200&q=70 1920w"
-        imagesizes="100vw">
+  <!-- Foto do topo: a mesma cena que abre o vídeo (a troca foto → vídeo fica imperceptível) -->
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-810.webp" media="(max-aspect-ratio: 3/4)">
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-1440.webp" media="(min-aspect-ratio: 3001/4000) and (max-aspect-ratio: 4/3)">
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/video/hero-poster-1920.webp" media="(min-aspect-ratio: 4001/3000)">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=6">
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- Dados da empresa para o Google -->
@@ -88,8 +87,10 @@
   <header class="header" data-header>
     <div class="container header__inner">
       <a href="#inicio" class="logo" aria-label="Impacto Construtora — início">
-        <img class="logo__img logo__img--header logo__img--dark w-40 h-auto" src="assets/logo-principal-360-transp.png" alt="Impacto Construtora" width="160" height="48" decoding="async" fetchpriority="high">
-        <img class="logo__img logo__img--header logo__img--light w-40 h-auto" src="assets/logo-principal-360-white.png" alt="" aria-hidden="true" width="160" height="48" decoding="async" fetchpriority="high">
+        <picture>
+          <source type="image/webp" srcset="assets/logo-impacto-160.webp 1x, assets/logo-impacto-240.webp 2x">
+          <img class="logo__img" src="assets/logo-impacto-160.png" alt="Impacto Construtora" width="216" height="160" fetchpriority="high">
+        </picture>
       </a>
 
       <nav class="nav" id="menu" aria-label="Menu principal" data-nav>
@@ -113,22 +114,24 @@
 
     <!-- ===================== TOPO COM VÍDEO ===================== -->
     <section class="hero" id="inicio">
-      <!-- Foto ALTO PADRÃO — casa de luxo moderna (troca o vídeo enquanto carrega) -->
-      <img class="hero__poster"
-           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&h=1200&q=70"
-           srcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=640&h=1100&q=70 640w,
-                     https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=828&h=1400&q=65 828w,
-                   https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1080&h=1200&q=70 1080w,
-                   https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&h=1200&q=70 1920w"
-           sizes="100vw" alt="Casa de alto padrão moderna com fachada iluminada ao entardecer" width="1920" height="1200" fetchpriority="high" decoding="async">
+      <!-- Foto de abertura: primeiro quadro do vídeo (aparece enquanto o vídeo carrega
+           e fica no lugar dele em conexões lentas). Cada recorte tem o mesmo
+           enquadramento que o vídeo terá naquele formato de tela. -->
+      <picture>
+        <source media="(max-aspect-ratio: 3/4)" srcset="assets/video/hero-poster-810.webp" type="image/webp" width="810" height="1080">
+        <source media="(max-aspect-ratio: 4/3)" srcset="assets/video/hero-poster-1440.webp" type="image/webp" width="1440" height="1080">
+        <img class="hero__poster" src="assets/video/hero-poster-1920.webp"
+             alt="Casa de alto padrão moderna com fachada clara e varanda de vidro" width="1920" height="1080" fetchpriority="high" decoding="async">
+      </picture>
       <!--
-        VÍDEO PRINCIPAL: coloque seu vídeo em assets/video/hero.mp4
-        (MP4, 1920x1080, 10 a 20 segundos, sem som, até ~10 MB).
+        VÍDEO PRINCIPAL: montagem de vídeos gratuitos do Pexels (fachada, vista aérea,
+        obra, interior e casa pronta). Começa e termina na fachada para repetir sem corte.
+        Computador: assets/video/hero.mp4 (1920x1080) · Celular: assets/video/hero-mobile.mp4 (1280x720).
         Ele só começa a baixar depois que o resto da página carregou,
         e não é baixado em conexões lentas ou com economia de dados.
       -->
       <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true"
-             data-hero-video data-src="assets/video/hero.mp4"></video>
+             data-hero-video data-src="assets/video/hero.mp4" data-src-mobile="assets/video/hero-mobile.mp4"></video>
       <div class="hero__overlay" aria-hidden="true"></div>
 
       <div class="container hero__content">
@@ -685,8 +688,11 @@
   <footer class="footer" id="contato">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <a href="#inicio" class="logo logo--light" aria-label="Impacto Construtora — voltar ao início">
-          <img class="logo__img logo__img--footer w-40 h-auto" src="assets/logo-principal-360-white.png" alt="Impacto Construtora" width="160" height="48" loading="lazy" decoding="async">
+        <a href="#inicio" class="logo logo--card" aria-label="Impacto Construtora — voltar ao início">
+          <picture>
+            <source type="image/webp" srcset="assets/logo-impacto-160.webp 1x, assets/logo-impacto-240.webp 2x">
+            <img class="logo__img" src="assets/logo-impacto-160.png" alt="Impacto Construtora" width="216" height="160" loading="lazy" decoding="async">
+          </picture>
         </a>
         <p>Casas no padrão Minha Casa Minha Vida, do projeto à entrega das chaves.</p>
         <div class="socials">
@@ -744,6 +750,6 @@
     <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <script src="js/main.js?v=3" defer></script>
+  <script src="js/main.js?v=6" defer></script>
 </body>
 </html>

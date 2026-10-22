@@ -1,9 +1,13 @@
 # Originais pesados — só versões 360px são commitadas
 assets/logo-principal.png
 assets/logo-principal-transp.png
-# Vídeo é grande demais pro Git — coloque localmente em assets/video/hero.mp4
-assets/video/hero.mp4
+# Vídeos brutos ficam fora do Git; só as versões otimizadas da capa são publicadas
 assets/video/*.mp4
 assets/video/*.mov
+!assets/video/hero.mp4
+!assets/video/hero-mobile.mp4
 .DS_Store
 Thumbs.db
+
+# Material de referência (não publicar)
+referencia/

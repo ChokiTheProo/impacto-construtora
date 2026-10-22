@@ -82,7 +82,9 @@ if (video && videoToggle) {
   const loadVideo = () => {
     video.muted = true;
     video.preload = reduceMotion ? 'metadata' : 'auto';
-    video.src = video.dataset.src;
+    // Celular recebe a versão 720p (bem mais leve); computador recebe a Full HD
+    const isSmall = window.matchMedia('(max-width: 768px)').matches;
+    video.src = (isSmall && video.dataset.srcMobile) || video.dataset.src;
     tryPlay();
   };
 
