@@ -18,6 +18,7 @@ Substitua hero.mp4 e hero-mobile.mp4 mantendo os nomes. Recomendações:
 - Duração de 10 a 20 segundos (ele roda em repetição)
 - Sem som (o navegador só toca vídeo automático se estiver mudo)
 - Menos de 6 MB (o de celular, vertical, menos de 2 MB)
+- Para a repetição não dar "pulo", termine o vídeo na mesma cena em que ele começa
 - Troque também as fotos hero-poster-*.webp pelo primeiro quadro do vídeo novo
 
 O texto aparece por cima do vídeo com uma camada escura, então prefira

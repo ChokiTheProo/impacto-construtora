@@ -22,6 +22,11 @@ ou um dado do rodapé, mude em todos os arquivos `.html`.
 ## Vídeo e foto da capa
 Ficam em `assets/video/` — veja `assets/video/LEIA-ME.txt` para trocar.
 
+## Ícone do site (favicon)
+`favicon.svg` e `favicon.ico` (aba do navegador), `assets/apple-touch-icon.png` (iPhone),
+`assets/icon-192.png` e `assets/icon-512.png` (Android, listados em `site.webmanifest`).
+Todos têm o mesmo desenho: a casa branca do logo sobre o vermelho da marca (#D00D12).
+
 ## Dados da empresa
 WhatsApp, telefone e redes sociais: `js/main.js` → objeto `CONFIG`.
 

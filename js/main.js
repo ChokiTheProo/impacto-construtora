@@ -74,7 +74,7 @@ if (video) {
     video.muted = true;
     video.autoplay = true;
     video.preload = 'auto';
-    // Celular em pé recebe a versão vertical (bem mais leve); o resto recebe a Full HD
+    // Celular em pé recebe a versão vertical (bem mais leve); o resto recebe a 1600x900
     const isPortrait = window.matchMedia('(max-aspect-ratio: 3/4)').matches;
     video.src = (isPortrait && video.dataset.srcMobile) || video.dataset.src;
     tryPlay();
@@ -83,16 +83,17 @@ if (video) {
   video.addEventListener('playing', () => video.classList.add('is-playing'));
   video.addEventListener('canplay', tryPlay);
 
+  // Repetição infinita: além do "loop" do HTML, se o vídeo terminar ou for pausado
+  // por qualquer motivo (economia de bateria, rede lenta, troca de app), volta a tocar
+  video.addEventListener('ended', () => { video.currentTime = 0; tryPlay(); });
+  video.addEventListener('pause', () => setTimeout(tryPlay, 250));
+  setInterval(() => { if (video.paused) tryPlay(); }, 2000);
+
   // Volta a tocar quando a pessoa retorna à aba ou ao app
   document.addEventListener('visibilitychange', tryPlay);
 
-  // iPhone em modo economia de bateria bloqueia o play automático:
-  // o vídeo começa no primeiro toque na tela
-  const unlock = () => {
-    tryPlay();
-    if (!video.paused) ['touchend', 'click'].forEach((t) => document.removeEventListener(t, unlock));
-  };
-  ['touchend', 'click'].forEach((t) => document.addEventListener(t, unlock, { passive: true }));
+  // iPhone em modo economia de bateria só libera vídeo depois de um toque na tela
+  ['touchend', 'click'].forEach((t) => document.addEventListener(t, tryPlay, { passive: true }));
 
   // Pausa o vídeo quando ele sai da tela (economiza bateria e dados)
   new IntersectionObserver(([entry]) => {
