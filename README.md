@@ -1,40 +1,36 @@
 ﻿# Impacto Construtora — Site
 
-Site institucional da **Impacto Construtora** — Casas Minha Casa Minha Vida em Pirajuí/SP.
+Site institucional da **Impacto Construtora** — casas Minha Casa Minha Vida em Pirajuí/SP.
+Publicado pelo GitHub Pages: https://chokitheproo.github.io/impacto-construtora/
 
-## 🚀 Acesso
-Site estático — abra \index.html\ ou publique via GitHub Pages.
+## Páginas
 
-## 📸 Foto principal (alto padrão)
-Hero usando imagem de casa de alto padrão moderna (Unsplash):
-\https://images.unsplash.com/photo-1600585154340-be6161a56a0c\
-- Para trocar: edite \index.html\ — busque por \hero__poster\ e \preload\ no \<head>\.
+| Arquivo | Página |
+| --- | --- |
+| `index.html` | Início (vídeo de capa, modelos em destaque, serviços, depoimentos) |
+| `servicos.html` | Serviços, obras e garantia |
+| `modelos.html` | Modelos de casas em grade, com filtro (2 quartos, 3 quartos, com suíte) |
+| `modelo-casa-ipe.html`, `modelo-casa-jatoba.html`, `modelo-casa-aroeira.html` | Página de cada modelo: visão geral, ficha, fotos e destaques |
+| `como-funciona.html` | Passo a passo e faixas do programa |
+| `sobre.html` | Sobre a empresa, números, depoimentos e garantia |
+| `duvidas.html` | Perguntas frequentes |
+| `simular.html` | Formulário de simulação (envia pelo WhatsApp) |
 
-## 🎬 Vídeo principal
-O site já está preparado para vídeo no topo. Para ativar:
+O cabeçalho e o rodapé se repetem em todas as páginas: ao mudar um link do menu
+ou um dado do rodapé, mude em todos os arquivos `.html`.
 
-### Caminho do vídeo:
-\\\
-assets/video/hero.mp4
-\\\
+## Vídeo e foto da capa
+Ficam em `assets/video/` — veja `assets/video/LEIA-ME.txt` para trocar.
 
-### Como baixar/colocar o vídeo:
-1. Tenha um vídeo em MP4 (H.264), 1920x1080, 10 a 20 segundos, sem som, até ~10 MB.
-2. Renomeie para \hero.mp4\
-3. Coloque em: \ssets/video/hero.mp4\ (dentro da pasta do projeto)
-4. Enquanto o arquivo não existir, o site mostra a foto de alto padrão no lugar.
+## Dados da empresa
+WhatsApp, telefone e redes sociais: `js/main.js` → objeto `CONFIG`.
 
-> O vídeo só começa a baixar depois que a página carrega (não atrasa o topo).
-> Em conexões lentas ou modo economia, ele nem é baixado.
+## Ainda são exemplos
+Depoimentos, números ("+300 casas", "10 anos"), dados dos modelos e fotos (Unsplash)
+precisam ser trocados pelos reais.
 
-### Onde baixar vídeos gratuitos (alto padrão):
-- https://www.pexels.com/pt-br/videos/ (busque: "luxury house", "modern villa aerial")
-- https://pixabay.com/videos/search/luxury%20house/
-- https://coverr.co/ (categoria Real Estate / Architecture)
-Baixe em 1080p, corte para 15s e exporte sem áudio.
+## Atualizar o cache
+Ao mudar `css/style.css` ou `js/main.js`, aumente o `?v=` nos links de todas as páginas.
 
-## 🛠️ Tecnologias
-HTML + CSS + JS vanilla (sem build).
-
-## 📱 Contato
-Edite os dados em \js/main.js\ → objeto \CONFIG\.
+## Tecnologias
+HTML + CSS + JS puro (sem build). Fontes hospedadas em `assets/fonts/`.

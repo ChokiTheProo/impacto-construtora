@@ -140,6 +140,22 @@ if (slider) {
   show(0);
 }
 
+/* ---------- Filtro da página de modelos ---------- */
+const filterBar = document.querySelector('[data-filters]');
+
+if (filterBar) {
+  const cards = [...document.querySelectorAll('[data-tags]')];
+  filterBar.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-filter]');
+    if (!button) return;
+    const filter = button.dataset.filter;
+    filterBar.querySelectorAll('[data-filter]').forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+    cards.forEach((card) => {
+      card.hidden = filter !== 'todos' && !card.dataset.tags.split(' ').includes(filter);
+    });
+  });
+}
+
 /* ---------- Animação ao rolar ---------- */
 const reveals = document.querySelectorAll('.reveal');
 
